@@ -1,11 +1,11 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
+import { FlatList } from 'react-native';
 import Items from './Items';
-import estilosGlobal from '../../../src/estilos';
+import TelaPadrao from '../../componentes/TelaPadrao';
 
 const servicos = [
     {
-        id: 1,
+        id: 1, 
         nome: "Banho",
         preco: 35.9,
         descricao: "NÃO DE BANHO NO SEU GATO MAS SE PRECISAR NOS DAMOS!!!"
@@ -29,20 +29,13 @@ const servicos = [
 
 export default function Servicos(){
     return(
-        <SafeAreaView style={estilosGlobal.preencher}>
-            <StatusBar/>
-            <KeyboardAvoidingView
-                behavior={Platform.OS == "ios" ? "padding" : "height"}
-                style={estilosGlobal.preencher}
-            >
-        <FlatList 
-            data={servicos}
-            removeClippedSubviews={false}
-            renderItem={({item}) =>  <Items {...item} />}
-            keyExtractor={({id}) => String(id)}
-        />
-        </KeyboardAvoidingView>
-  
-        </SafeAreaView>
+        <TelaPadrao>
+            <FlatList 
+                data={servicos}
+                removeClippedSubviews={false}
+                renderItem={({item}) =>  <Items {...item} />}
+                keyExtractor={({id}) => String(id)}
+            />
+        </TelaPadrao>
     );
 }

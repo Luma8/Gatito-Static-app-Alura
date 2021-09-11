@@ -1,7 +1,8 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
+import {  FlatList } from 'react-native';
 import Items from './Items';
-import estilosGlobal from '../../../src/estilos';
+import TelaPadrao from '../../componentes/TelaPadrao';
+import StatusCarrinho from '../../componentes/Campointeiro/StatusCarrinho';
 
 const servicos = [
     {
@@ -31,21 +32,17 @@ const servicos = [
 
 
 export default function Carrinho(){
+    const total = servicos.reduce((soma, {preco, quantidade}) => soma + (preco * quantidade), 0);
+
     return(
-        <SafeAreaView style={estilosGlobal.preencher}>
-            <StatusBar/>
-            <KeyboardAvoidingView
-                behavior={Platform.OS == "ios" ? "padding" : "height"}
-                style={estilosGlobal.preencher}
-            >
-        <FlatList 
+        <TelaPadrao>
+            <StatusCarrinho  total={total}/> 
+         <FlatList 
             data={servicos}
             removeClippedSubviews={false}
             renderItem={({item}) =>  <Items {...item} />}
             keyExtractor={({id}) => String(id)}
         />
-        </KeyboardAvoidingView>
-  
-        </SafeAreaView>
+        </TelaPadrao>
     );
 }
