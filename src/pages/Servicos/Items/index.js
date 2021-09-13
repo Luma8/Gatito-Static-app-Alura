@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity,Text, TextInput, View } from 'react-native';
+import { TouchableOpacity,Text, View } from 'react-native';
 import Campointeiro from '../../../componentes/Campointeiro';
 import estilos from './estilos';
 import Botao from '../../../componentes/Botao';

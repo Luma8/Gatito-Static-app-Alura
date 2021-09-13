@@ -1,12 +1,13 @@
 import React from 'react';
-import Servicos from './src/pages/Servicos';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
-import Carrinho from './src/pages/Carrinho';
-
+import Routes from './src/Routes';
+import TelaPadrao from './src/componentes/TelaPadrao/index'
 
 export default function App() {
   return (
-    <Carrinho/>
+    <TelaPadrao>
+    <Routes/>
+    </TelaPadrao>
   );
 }
