@@ -7,23 +7,23 @@ import { cores } from './estilos';
 
 const Tab = createBottomTabNavigator();
 
-export default function Routes(){
-    return(
+export default function Routes() {
+    return (
         <NavigationContainer>
-            <Tab.Navigator 
+            <Tab.Navigator
                 screenOptions={{
-                  tabBarActiveTintColor: cores.roxo,
-                  tabBarInactiveTintColor: cores.claro,
-                  tabBarActiveBackgroundColor: cores.roxo,
-                  tabBarInactiveBackgroundColor: cores.laranja,
-                  headerShown: false,
-                  tabBarIconStyle:{
-                      display: 'none',
-                  },
-                  tabBarStyle:{
-                    height: 70,
-                  },
-                    tabBarLabelStyle:{
+                    tabBarActiveTintColor: cores.roxo,
+                    tabBarInactiveTintColor: cores.claro,
+                    tabBarActiveBackgroundColor: cores.roxo,
+                    tabBarInactiveBackgroundColor: cores.laranja,
+                    headerShown: false,
+                    tabBarIconStyle: {
+                        display: 'none',
+                    },
+                    tabBarStyle: {
+                        height: 70,
+                    },
+                    tabBarLabelStyle: {
                         width: '100%',
                         flex: 1,
                         fontWeight: 'bold',
@@ -31,13 +31,13 @@ export default function Routes(){
                         lineHeight: 21,
                         marginTop: 3,
                         paddingTop: 21,
-                        backgroundColor: cores.laranja 
+                        backgroundColor: cores.laranja
                     },
                     tabBarHideOnKeyboard: true
                 }}
-            > 
-                <Tab.Screen name="Serviços" component={Servicos}/>
-                <Tab.Screen name="Carrinho" component={Carrinho}/>
+            >
+                <Tab.Screen name="Serviços" component={Servicos} />
+                <Tab.Screen name="Carrinho" component={Carrinho} />
             </Tab.Navigator>
         </NavigationContainer>
     );

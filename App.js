@@ -7,7 +7,7 @@ import TelaPadrao from './src/componentes/TelaPadrao/index'
 export default function App() {
   return (
     <TelaPadrao>
-    <Routes/>
+      <Routes />
     </TelaPadrao>
   );
 }

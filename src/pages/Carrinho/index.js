@@ -1,7 +1,6 @@
 import React from 'react';
-import {  FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import Items from './Items';
-import TelaPadrao from '../../componentes/TelaPadrao';
 import StatusCarrinho from '../../componentes/Campointeiro/StatusCarrinho';
 
 const servicos = [
@@ -17,7 +16,7 @@ const servicos = [
         nome: "Vacina V4",
         preco: 49.9,
         descricao: "Uma dose da vacina v4",
-        quantidade: 2
+        quantidade: 1
     },
     {
         id: 3,
@@ -25,24 +24,28 @@ const servicos = [
         preco: 35.9,
         descricao: "Uma dose da vacina v3",
         quantidade: 1
+    },
+    {
+        id: 4,
+        nome: "Vacina V3",
+        preco: 35.9,
+        descricao: "Uma dose da vacina v3",
+        quantidade: 1
     }
-
 ];
 
+export default function Carrinho() {
+    const total = servicos.reduce((soma, { preco, quantidade }) => soma + (preco * quantidade), 0);
 
-
-export default function Carrinho(){
-    const total = servicos.reduce((soma, {preco, quantidade}) => soma + (preco * quantidade), 0);
-
-    return(
-        <TelaPadrao>
-            <StatusCarrinho  total={total}/> 
-         <FlatList 
-            data={servicos}
-            removeClippedSubviews={false}
-            renderItem={({item}) =>  <Items {...item} />}
-            keyExtractor={({id}) => String(id)}
-        />
-        </TelaPadrao>
+    return (
+        <>
+            <StatusCarrinho total={total} />
+            <FlatList
+                data={servicos}
+                removeClippedSubviews={false}
+                renderItem={({ item }) => <Items {...item} />}
+                keyExtractor={({ id }) => String(id)}
+            />
+        </>
     );
 }
