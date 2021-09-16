@@ -13,11 +13,13 @@ export default function Campointeiro({ valor, estilos, acao }) {
     }
     const numeroString = String(valor);
 
-    return <TextInput
-        style={[estilosPadrao.campo, estilos]}
-        keyboardType='number-pad'
-        selectTextOnFocus
-        onChangeText={(novoValor) => { atualiza(novoValor, acao) }}
-        value={numeroString}
-    />
+    return (
+        <TextInput
+            style={[estilosPadrao.campo, estilos]}
+            keyboardType='number-pad'
+            selectTextOnFocus
+            onChangeText={(novoValor) => { atualiza(novoValor, acao) }}
+            value={numeroString}
+        />
+    );
 }

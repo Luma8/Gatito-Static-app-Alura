@@ -2,10 +2,9 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import Items from './Items';
 
-
 const servicos = [
     {
-        id: 1, 
+        id: 1,
         nome: "Banho",
         preco: 35.9,
         descricao: "NÃO DE BANHO NO SEU GATO MAS SE PRECISAR NOS DAMOS!!!"
@@ -25,16 +24,14 @@ const servicos = [
 
 ];
 
-
-
-export default function Servicos(){
-    return(
+export default function Servicos() {
+    return (
         <>
-            <FlatList 
+            <FlatList
                 data={servicos}
                 removeClippedSubviews={false}
-                renderItem={({item}) =>  <Items {...item} />}
-                keyExtractor={({id}) => String(id)}
+                renderItem={({ item }) => <Items {...item} />}
+                keyExtractor={({ id }) => String(id)}
             />
         </>
     );

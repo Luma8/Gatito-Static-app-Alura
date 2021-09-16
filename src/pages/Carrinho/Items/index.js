@@ -17,35 +17,37 @@ export default function Items({ nome, preco, descricao, quantidade: quantidadeIn
         steTotal(novaQuantidade * preco);
     }
 
-    return <>
-        <View style={estilos.informacao}>
-            <Text style={estilos.nome}>{nome}</Text>
-            <Text style={estilos.descricao}>{descricao}</Text>
-            <Text style={estilos.preco}>{
-                Intl.NumberFormat('pt-BR', {
-                    style: 'currency', currency: 'BRL'
-                }).format(preco)
-            }</Text>
-        </View>
-        <View style={estilos.carrinho}>
-            <View>
-                <View style={estilos.valor}>
-                    <Text styles={estilos.descricao}>
-                        Quantidade:
-                    </Text>
-                    <Campointeiro estilos={estilos.quantidade} valor={quantidade} acao={atualizaQuantidadeTotal} />
-                </View>
-                <View style={estilos.valor}>
-                    <Text styles={estilos.descricao}>
-                        preço:
-                    </Text>
-                    <Text style={estilos.preco}>{Intl.NumberFormat('pt-BR', {
+    return (
+        <>
+            <View style={estilos.informacao}>
+                <Text style={estilos.nome}>{nome}</Text>
+                <Text style={estilos.descricao}>{descricao}</Text>
+                <Text style={estilos.preco}>{
+                    Intl.NumberFormat('pt-BR', {
                         style: 'currency', currency: 'BRL'
-                    }).format(total)}</Text>
-                </View>
+                    }).format(preco)
+                }</Text>
             </View>
-            <Botao valor="remover" acao={() => { }} />
-        </View>
-        <View style={estilos.divisor} />
-    </>
+            <View style={estilos.carrinho}>
+                <View>
+                    <View style={estilos.valor}>
+                        <Text styles={estilos.descricao}>
+                            Quantidade:
+                        </Text>
+                        <Campointeiro estilos={estilos.quantidade} valor={quantidade} acao={atualizaQuantidadeTotal} />
+                    </View>
+                    <View style={estilos.valor}>
+                        <Text styles={estilos.descricao}>
+                            preço:
+                        </Text>
+                        <Text style={estilos.preco}>{Intl.NumberFormat('pt-BR', {
+                            style: 'currency', currency: 'BRL'
+                        }).format(total)}</Text>
+                    </View>
+                </View>
+                <Botao valor="remover" acao={() => { }} />
+            </View>
+            <View style={estilos.divisor} />
+        </>
+    );
 }
